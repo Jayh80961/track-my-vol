@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "440453449180",
+    "project_id": "track-my-vol",
+    "storage_bucket": "track-my-vol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440453449180:android:41cc3b119a71e65a333b19",
+        "android_client_info": {
+          "package_name": "com.example.track_my_vol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440453449180-ehv81ru9fvr118p7su8lnusnrck23t3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOZxs7ArNqgGi_xPs4gWvtu3gXkKP-0Vo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440453449180-ehv81ru9fvr118p7su8lnusnrck23t3s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "440453449180-g8cn3k1prk8ol117nnjsosjgbchga3l6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.trackMyVol.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

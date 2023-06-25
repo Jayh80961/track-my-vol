@@ -1,6 +1,6 @@
 name: track_my_vol
 description: Track_my_vol is a volunteer app for people in HOK.
-publish_to: 'none' 
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -10,7 +10,13 @@ dependencies:
   flutter:
     sdk: flutter
   google_sign_in: ^6.1.4
-  
+  image_picker: ^0.8.9
+  # Firebase
+  cloud_firestore: ^4.8.1
+  firebase_auth: ^4.6.3
+  firebase_core: ^2.14.0
+  firebase_storage: ^11.2.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

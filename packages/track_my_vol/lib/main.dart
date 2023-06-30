@@ -21,8 +21,9 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const App());
-  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
+  final GoogleSignInAccount? googleUser = await GoogleSignIn(
+    clientId: DefaultFirebaseOptions.currentPlatform.iosClientId,
+  ).signIn();
   print(googleUser);
   print(googleUser?.authentication);
 

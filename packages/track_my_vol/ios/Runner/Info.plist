@@ -47,5 +47,20 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.440453449180-lvqn94surej39flv1hsj230r1qivv67g</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Permission is required to upload volunteer activity photos.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Permission is required to upload volunteer activity photos.</string>
 </dict>
 </plist>

@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MyPage extends StatelessWidget {
   const MyPage({super.key});
@@ -9,15 +12,36 @@ class MyPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('My Page'),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              buildTotalContainer(),
-              buildActivityListView(),
-            ],
-          ),
-        ),
+      // body: SingleChildScrollView(
+      //   child: Center(
+      //     child: Column(
+      //       children: <Widget>[
+      //         buildTotalContainer(),
+      //         buildActivityListView(),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 2,
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              context.go('/');
+              break;
+            case 1:
+              context.go('/login');
+              break;
+            case 2:
+              context.go('/my');
+              break;
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+          BottomNavigationBarItem(icon: Icon(Icons.create), label: 'new'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'my'),
+        ],
       ),
     );
   }
@@ -44,6 +68,39 @@ class MyPage extends StatelessWidget {
   }
 
   Widget buildActivityListView() {
+    a() async {
+      // print('call a!');
+      // CollectionReference vols = FirebaseFirestore.instance.collection('vols');
+
+      // QuerySnapshot snapshot = await vols
+      //     .where('email', isEqualTo: FirebaseAuth.instance.currentUser?.email)
+      //     .get();
+      // print(snapshot.docs);
+
+      // for (var doc in snapshot.docs) {
+      //   print(doc.data());
+      // }
+    }
+
+    a();
+
+    return FutureBuilder<QuerySnapshot>(
+      future: FirebaseFirestore.instance.collection('vols').get(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text("Something went wrong");
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          for (var data in snapshot.data!.docs) {
+            print(data);
+          }
+          return Text("Full Name: ");
+        }
+
+        return Text("loading");
+      },
+    );
     return Column(
       children: [
         Row(

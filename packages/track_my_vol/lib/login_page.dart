@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -21,6 +22,27 @@ class LoginPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 1,
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              context.go('/');
+              break;
+            case 1:
+              context.go('/login');
+              break;
+            case 2:
+              context.go('/my');
+              break;
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+          BottomNavigationBarItem(icon: Icon(Icons.create), label: 'new'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'my'),
+        ],
       ),
     );
   }

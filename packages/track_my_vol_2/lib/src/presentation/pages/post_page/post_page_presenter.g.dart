@@ -1,0 +1,26 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'post_page_presenter.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$postPagePresenterHash() => r'9c311ee157e70c35ca21801bcce4ca4b75a614ba';
+
+/// See also [PostPagePresenter].
+@ProviderFor(PostPagePresenter)
+final postPagePresenterProvider =
+    AutoDisposeNotifierProvider<PostPagePresenter, PostPageViewModel>.internal(
+  PostPagePresenter.new,
+  name: r'postPagePresenterProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$postPagePresenterHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$PostPagePresenter = AutoDisposeNotifier<PostPageViewModel>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member

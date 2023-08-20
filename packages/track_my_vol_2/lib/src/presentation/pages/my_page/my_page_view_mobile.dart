@@ -65,7 +65,9 @@ class MyPageViewMobile extends StatelessWidget {
                 ),
                 SliverToBoxAdapter(
                   child: ListTile(
-                    title: Text('Total Hours : ${myPageViewModel.totalHours}'),
+                    title: Text(
+                      'Total Minutes : ${myPageViewModel.totalMinutes}',
+                    ),
                   ),
                 ),
                 SliverToBoxAdapter(
@@ -110,7 +112,7 @@ class MyPageViewMobile extends StatelessWidget {
                             myPageViewModel.vols[index].images[0],
                           ),
                           date: myPageViewModel.vols[index].dateString,
-                          hours: myPageViewModel.vols[index].horus,
+                          minutes: myPageViewModel.vols[index].minutes,
                         ),
                       );
                     },

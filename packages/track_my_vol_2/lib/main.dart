@@ -15,18 +15,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   if (kDebugMode) {
-    // FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
+    FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
   }
-  final ProviderContainer container = ProviderContainer();
-  final Repository repository = container.read(repositoryProvider);
-
-  final Provider<Repository> repositoryProvider =
-      Provider((ProviderRef<Object?> ref) => Repository(ref));
-  await repository.fetchVolModel().then(
-    (VolModel value) {
-      print(value);
-    },
-  );
-
   runApp(const ProviderScope(child: MainApp()));
 }

@@ -14,7 +14,7 @@ class VolModel with _$VolModel {
     required List<String> images,
     required String title,
     required String description,
-    required int horus,
+    required int minutes,
     required int year,
     required int month,
     required int day,

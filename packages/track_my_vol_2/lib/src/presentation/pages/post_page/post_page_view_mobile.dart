@@ -112,21 +112,6 @@ class PostPageViewMobile extends ConsumerWidget {
                       const SizedBox(height: 24),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'hours',
-                          enabledBorder: outlinedBorder,
-                          focusedBorder: outlinedBorder,
-                        ),
-                        readOnly: postPageViewModel.isSubmitting,
-                        enabled: !postPageViewModel.isSubmitting,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: <TextInputFormatter>[
-                          FilteringTextInputFormatter.digitsOnly
-                        ], // Only numbers can be entered
-                        onChanged: postPagePresenter.horusOnChanged,
-                      ),
-                      const SizedBox(height: 24),
-                      TextFormField(
-                        decoration: InputDecoration(
                           labelText: 'full-name',
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
@@ -172,6 +157,66 @@ class PostPageViewMobile extends ConsumerWidget {
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                         ),
+                      ),
+                      const SizedBox(height: 24),
+                      TextFormField(
+                        controller: TextEditingController(
+                          text: postPageViewModel.startTime.toString(),
+                        ),
+                        onTap: () async {
+                          final TimeOfDay? value = await showTimePicker(
+                            context: context,
+                            initialTime: postPageViewModel.startTime,
+                          );
+                          if (value != null) {
+                            postPagePresenter.startOfTimeChanged(value);
+                          }
+                        },
+                        readOnly: true,
+                        enabled: !postPageViewModel.isSubmitting,
+                        decoration: InputDecoration(
+                          labelText: 'Start of Time',
+                          suffixIcon: const Icon(Icons.date_range_outlined),
+                          enabledBorder: outlinedBorder,
+                          focusedBorder: outlinedBorder,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      TextFormField(
+                        controller: TextEditingController(
+                          text: postPageViewModel.endTime.toString(),
+                        ),
+                        onTap: () async {
+                          final TimeOfDay? value = await showTimePicker(
+                            context: context,
+                            initialTime: postPageViewModel.endTime,
+                          );
+                          if (value != null) {
+                            postPagePresenter.endOfTimeChanged(value);
+                          }
+                        },
+                        readOnly: true,
+                        enabled: !postPageViewModel.isSubmitting,
+                        decoration: InputDecoration(
+                          labelText: 'End of Time',
+                          suffixIcon: const Icon(Icons.date_range_outlined),
+                          enabledBorder: outlinedBorder,
+                          focusedBorder: outlinedBorder,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      TextFormField(
+                        controller: TextEditingController(
+                          text: postPageViewModel.duration.toString(),
+                        ),
+                        decoration: InputDecoration(
+                          labelText: 'hours',
+                          enabledBorder: outlinedBorder,
+                          focusedBorder: outlinedBorder,
+                          disabledBorder: outlinedBorder,
+                        ),
+                        readOnly: true,
+                        enabled: false,
                       ),
                     ],
                   ),

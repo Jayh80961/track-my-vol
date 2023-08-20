@@ -9,13 +9,13 @@ class VolListTile extends StatelessWidget {
     required this.description,
     required this.image,
     required this.date,
-    required this.hours,
+    required this.minutes,
   });
 
   final String title;
   final String description;
   final String date;
-  final int hours;
+  final int minutes;
   final ImageProvider image;
 
   @override
@@ -38,7 +38,7 @@ class VolListTile extends StatelessWidget {
                 Text(title),
                 Text(description),
                 Text(date),
-                Text('hours : $hours'),
+                Text('Minutes : $minutes'),
               ],
             ),
           ],
@@ -54,6 +54,6 @@ class VolListTile extends StatelessWidget {
     properties.add(StringProperty('description', description));
     properties.add(StringProperty('title', title));
     properties.add(StringProperty('date', date));
-    properties.add(IntProperty('hours', hours));
+    properties.add(IntProperty('hours', minutes));
   }
 }

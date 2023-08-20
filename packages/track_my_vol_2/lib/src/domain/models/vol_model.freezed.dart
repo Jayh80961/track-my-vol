@@ -25,7 +25,7 @@ mixin _$VolModel {
   List<String> get images => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  int get horus => throw _privateConstructorUsedError;
+  int get minutes => throw _privateConstructorUsedError;
   int get year => throw _privateConstructorUsedError;
   int get month => throw _privateConstructorUsedError;
   int get day => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $VolModelCopyWith<$Res> {
       List<String> images,
       String title,
       String description,
-      int horus,
+      int minutes,
       int year,
       int month,
       int day,
@@ -81,7 +81,7 @@ class _$VolModelCopyWithImpl<$Res, $Val extends VolModel>
     Object? images = null,
     Object? title = null,
     Object? description = null,
-    Object? horus = null,
+    Object? minutes = null,
     Object? year = null,
     Object? month = null,
     Object? day = null,
@@ -112,9 +112,9 @@ class _$VolModelCopyWithImpl<$Res, $Val extends VolModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      horus: null == horus
-          ? _value.horus
-          : horus // ignore: cast_nullable_to_non_nullable
+      minutes: null == minutes
+          ? _value.minutes
+          : minutes // ignore: cast_nullable_to_non_nullable
               as int,
       year: null == year
           ? _value.year
@@ -165,7 +165,7 @@ abstract class _$$_VolModelCopyWith<$Res> implements $VolModelCopyWith<$Res> {
       List<String> images,
       String title,
       String description,
-      int horus,
+      int minutes,
       int year,
       int month,
       int day,
@@ -192,7 +192,7 @@ class __$$_VolModelCopyWithImpl<$Res>
     Object? images = null,
     Object? title = null,
     Object? description = null,
-    Object? horus = null,
+    Object? minutes = null,
     Object? year = null,
     Object? month = null,
     Object? day = null,
@@ -223,9 +223,9 @@ class __$$_VolModelCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      horus: null == horus
-          ? _value.horus
-          : horus // ignore: cast_nullable_to_non_nullable
+      minutes: null == minutes
+          ? _value.minutes
+          : minutes // ignore: cast_nullable_to_non_nullable
               as int,
       year: null == year
           ? _value.year
@@ -272,7 +272,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       required final List<String> images,
       required this.title,
       required this.description,
-      required this.horus,
+      required this.minutes,
       required this.year,
       required this.month,
       required this.day,
@@ -304,7 +304,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
   @override
   final String description;
   @override
-  final int horus;
+  final int minutes;
   @override
   final int year;
   @override
@@ -324,7 +324,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'VolModel(id: $id, userId: $userId, images: $images, title: $title, description: $description, horus: $horus, year: $year, month: $month, day: $day, fullName: $fullName, category: $category, createdAt: $createdAt, updatedAt: $updatedAt, isApproved: $isApproved)';
+    return 'VolModel(id: $id, userId: $userId, images: $images, title: $title, description: $description, minutes: $minutes, year: $year, month: $month, day: $day, fullName: $fullName, category: $category, createdAt: $createdAt, updatedAt: $updatedAt, isApproved: $isApproved)';
   }
 
   @override
@@ -337,7 +337,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('images', images))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('description', description))
-      ..add(DiagnosticsProperty('horus', horus))
+      ..add(DiagnosticsProperty('minutes', minutes))
       ..add(DiagnosticsProperty('year', year))
       ..add(DiagnosticsProperty('month', month))
       ..add(DiagnosticsProperty('day', day))
@@ -359,7 +359,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.horus, horus) || other.horus == horus) &&
+            (identical(other.minutes, minutes) || other.minutes == minutes) &&
             (identical(other.year, year) || other.year == year) &&
             (identical(other.month, month) || other.month == month) &&
             (identical(other.day, day) || other.day == day) &&
@@ -384,7 +384,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(_images),
       title,
       description,
-      horus,
+      minutes,
       year,
       month,
       day,
@@ -415,7 +415,7 @@ abstract class _VolModel extends VolModel {
       required final List<String> images,
       required final String title,
       required final String description,
-      required final int horus,
+      required final int minutes,
       required final int year,
       required final int month,
       required final int day,
@@ -439,7 +439,7 @@ abstract class _VolModel extends VolModel {
   @override
   String get description;
   @override
-  int get horus;
+  int get minutes;
   @override
   int get year;
   @override

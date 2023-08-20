@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -19,11 +20,12 @@ class PostPagePresenter extends _$PostPagePresenter {
       images: <XFile>[],
       title: '',
       description: '',
-      horus: 0,
       category: '',
       date: DateTime.now(),
       fullName: '',
       isSubmitting: false,
+      startTime: const TimeOfDay(hour: 10, minute: 0),
+      endTime: const TimeOfDay(hour: 11, minute: 30),
     );
   }
 
@@ -33,10 +35,6 @@ class PostPagePresenter extends _$PostPagePresenter {
 
   void descriptionOnChanged(String value) {
     state = state.copyWith(description: value);
-  }
-
-  void horusOnChanged(String value) {
-    state = state.copyWith(horus: int.tryParse(value) ?? 0);
   }
 
   void categoryOnChanged(String value) {
@@ -49,6 +47,36 @@ class PostPagePresenter extends _$PostPagePresenter {
 
   void dateOnChanged(DateTime value) {
     state = state.copyWith(date: value);
+  }
+
+  void startOfTimeChanged(TimeOfDay value) {
+    final Duration endDuration = Duration(
+      hours: state.endTime.hour,
+      minutes: state.endTime.minute,
+    );
+    final Duration valueDuration = Duration(
+      hours: value.hour,
+      minutes: value.minute,
+    );
+    if ((endDuration - valueDuration).isNegative) {
+      return;
+    }
+    state = state.copyWith(startTime: value);
+  }
+
+  void endOfTimeChanged(TimeOfDay value) {
+    final Duration startDuration = Duration(
+      hours: state.startTime.hour,
+      minutes: state.startTime.minute,
+    );
+    final Duration valueDuration = Duration(
+      hours: value.hour,
+      minutes: value.minute,
+    );
+    if ((valueDuration - startDuration).isNegative) {
+      return;
+    }
+    state = state.copyWith(endTime: value);
   }
 
   void addImages(List<XFile> images) {
@@ -75,7 +103,7 @@ class PostPagePresenter extends _$PostPagePresenter {
       images: imageUrls,
       title: state.title,
       description: state.description,
-      horus: state.horus,
+      minutes: state.duration.inMinutes,
       year: state.date.year,
       month: state.date.month,
       day: state.date.day,

@@ -36,16 +36,16 @@ class MyPagePresenter extends _$MyPagePresenter {
     final List<VolModel> vols = querySnapshot.docs
         .map((QueryDocumentSnapshot<VolModel> document) => document.data())
         .toList();
-    int totalHours = 0;
+    int totalMinutes = 0;
     for (int index = 0; index < vols.length; index++) {
-      totalHours += vols[index].horus;
+      totalMinutes += vols[index].minutes;
     }
     return MyPageViewModel(
       isLoading: false,
       vols: vols,
       name: FirebaseAuth.instance.currentUser?.displayName ?? '',
       totalVols: vols.length,
-      totalHours: totalHours,
+      totalMinutes: totalMinutes,
     );
   }
 

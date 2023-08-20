@@ -6,7 +6,7 @@ part of 'my_page_presenter.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myPagePresenterHash() => r'31e1d40843644a802271ec79a9b1daa12359440f';
+String _$myPagePresenterHash() => r'7f4ce01c1ef0f7a05dfee9e0600becd504768083';
 
 /// See also [MyPagePresenter].
 @ProviderFor(MyPagePresenter)

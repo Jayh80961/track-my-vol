@@ -19,11 +19,12 @@ mixin _$PostPageViewModel {
   List<XFile> get images => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  int get horus => throw _privateConstructorUsedError;
   String get fullName => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  TimeOfDay get startTime => throw _privateConstructorUsedError;
+  TimeOfDay get endTime => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PostPageViewModelCopyWith<PostPageViewModel> get copyWith =>
@@ -40,11 +41,12 @@ abstract class $PostPageViewModelCopyWith<$Res> {
       {List<XFile> images,
       String title,
       String description,
-      int horus,
       String fullName,
       String category,
       DateTime date,
-      bool isSubmitting});
+      bool isSubmitting,
+      TimeOfDay startTime,
+      TimeOfDay endTime});
 }
 
 /// @nodoc
@@ -63,11 +65,12 @@ class _$PostPageViewModelCopyWithImpl<$Res, $Val extends PostPageViewModel>
     Object? images = null,
     Object? title = null,
     Object? description = null,
-    Object? horus = null,
     Object? fullName = null,
     Object? category = null,
     Object? date = null,
     Object? isSubmitting = null,
+    Object? startTime = null,
+    Object? endTime = null,
   }) {
     return _then(_value.copyWith(
       images: null == images
@@ -82,10 +85,6 @@ class _$PostPageViewModelCopyWithImpl<$Res, $Val extends PostPageViewModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      horus: null == horus
-          ? _value.horus
-          : horus // ignore: cast_nullable_to_non_nullable
-              as int,
       fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -102,6 +101,14 @@ class _$PostPageViewModelCopyWithImpl<$Res, $Val extends PostPageViewModel>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      startTime: null == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      endTime: null == endTime
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
     ) as $Val);
   }
 }
@@ -118,11 +125,12 @@ abstract class _$$_PostPageViewModelCopyWith<$Res>
       {List<XFile> images,
       String title,
       String description,
-      int horus,
       String fullName,
       String category,
       DateTime date,
-      bool isSubmitting});
+      bool isSubmitting,
+      TimeOfDay startTime,
+      TimeOfDay endTime});
 }
 
 /// @nodoc
@@ -139,11 +147,12 @@ class __$$_PostPageViewModelCopyWithImpl<$Res>
     Object? images = null,
     Object? title = null,
     Object? description = null,
-    Object? horus = null,
     Object? fullName = null,
     Object? category = null,
     Object? date = null,
     Object? isSubmitting = null,
+    Object? startTime = null,
+    Object? endTime = null,
   }) {
     return _then(_$_PostPageViewModel(
       images: null == images
@@ -158,10 +167,6 @@ class __$$_PostPageViewModelCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      horus: null == horus
-          ? _value.horus
-          : horus // ignore: cast_nullable_to_non_nullable
-              as int,
       fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -178,6 +183,14 @@ class __$$_PostPageViewModelCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      startTime: null == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      endTime: null == endTime
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
     ));
   }
 }
@@ -190,11 +203,12 @@ class _$_PostPageViewModel extends _PostPageViewModel
       {required final List<XFile> images,
       required this.title,
       required this.description,
-      required this.horus,
       required this.fullName,
       required this.category,
       required this.date,
-      required this.isSubmitting})
+      required this.isSubmitting,
+      required this.startTime,
+      required this.endTime})
       : _images = images,
         super._();
 
@@ -211,8 +225,6 @@ class _$_PostPageViewModel extends _PostPageViewModel
   @override
   final String description;
   @override
-  final int horus;
-  @override
   final String fullName;
   @override
   final String category;
@@ -220,10 +232,14 @@ class _$_PostPageViewModel extends _PostPageViewModel
   final DateTime date;
   @override
   final bool isSubmitting;
+  @override
+  final TimeOfDay startTime;
+  @override
+  final TimeOfDay endTime;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PostPageViewModel(images: $images, title: $title, description: $description, horus: $horus, fullName: $fullName, category: $category, date: $date, isSubmitting: $isSubmitting)';
+    return 'PostPageViewModel(images: $images, title: $title, description: $description, fullName: $fullName, category: $category, date: $date, isSubmitting: $isSubmitting, startTime: $startTime, endTime: $endTime)';
   }
 
   @override
@@ -234,11 +250,12 @@ class _$_PostPageViewModel extends _PostPageViewModel
       ..add(DiagnosticsProperty('images', images))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('description', description))
-      ..add(DiagnosticsProperty('horus', horus))
       ..add(DiagnosticsProperty('fullName', fullName))
       ..add(DiagnosticsProperty('category', category))
       ..add(DiagnosticsProperty('date', date))
-      ..add(DiagnosticsProperty('isSubmitting', isSubmitting));
+      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
+      ..add(DiagnosticsProperty('startTime', startTime))
+      ..add(DiagnosticsProperty('endTime', endTime));
   }
 
   @override
@@ -250,14 +267,16 @@ class _$_PostPageViewModel extends _PostPageViewModel
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.horus, horus) || other.horus == horus) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                other.isSubmitting == isSubmitting));
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.startTime, startTime) ||
+                other.startTime == startTime) &&
+            (identical(other.endTime, endTime) || other.endTime == endTime));
   }
 
   @override
@@ -266,11 +285,12 @@ class _$_PostPageViewModel extends _PostPageViewModel
       const DeepCollectionEquality().hash(_images),
       title,
       description,
-      horus,
       fullName,
       category,
       date,
-      isSubmitting);
+      isSubmitting,
+      startTime,
+      endTime);
 
   @JsonKey(ignore: true)
   @override
@@ -285,11 +305,12 @@ abstract class _PostPageViewModel extends PostPageViewModel {
       {required final List<XFile> images,
       required final String title,
       required final String description,
-      required final int horus,
       required final String fullName,
       required final String category,
       required final DateTime date,
-      required final bool isSubmitting}) = _$_PostPageViewModel;
+      required final bool isSubmitting,
+      required final TimeOfDay startTime,
+      required final TimeOfDay endTime}) = _$_PostPageViewModel;
   const _PostPageViewModel._() : super._();
 
   @override
@@ -299,8 +320,6 @@ abstract class _PostPageViewModel extends PostPageViewModel {
   @override
   String get description;
   @override
-  int get horus;
-  @override
   String get fullName;
   @override
   String get category;
@@ -308,6 +327,10 @@ abstract class _PostPageViewModel extends PostPageViewModel {
   DateTime get date;
   @override
   bool get isSubmitting;
+  @override
+  TimeOfDay get startTime;
+  @override
+  TimeOfDay get endTime;
   @override
   @JsonKey(ignore: true)
   _$$_PostPageViewModelCopyWith<_$_PostPageViewModel> get copyWith =>

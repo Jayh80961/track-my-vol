@@ -39,7 +39,7 @@ class Repository {
       images: [],
       title: 'title',
       description: 'description',
-      horus: 1,
+      minutes: 1,
       year: 2,
       month: 3,
       day: 4,

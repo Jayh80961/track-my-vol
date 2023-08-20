@@ -11,7 +11,7 @@ class MyPageViewModel with _$MyPageViewModel {
     required List<VolModel> vols,
     required bool isLoading,
     required String name,
-    required int totalHours,
+    required int totalMinutes,
     required int totalVols,
   }) = _MyPageViewModel;
 

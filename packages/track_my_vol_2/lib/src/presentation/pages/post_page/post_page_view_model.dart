@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -11,11 +12,12 @@ class PostPageViewModel with _$PostPageViewModel {
     required List<XFile> images,
     required String title,
     required String description,
-    required int horus,
     required String fullName,
     required String category,
     required DateTime date,
     required bool isSubmitting,
+    required TimeOfDay startTime,
+    required TimeOfDay endTime,
   }) = _PostPageViewModel;
 
   const PostPageViewModel._();
@@ -24,11 +26,25 @@ class PostPageViewModel with _$PostPageViewModel {
     return DateFormat('yyyy / MMMM / dd / EE').format(date);
   }
 
+  int get minutes => duration.inMinutes;
+
+  Duration get duration {
+    final Duration startTimeDuration = Duration(
+      hours: startTime.hour,
+      minutes: startTime.minute,
+    );
+    final Duration endTimeDuration = Duration(
+      hours: endTime.hour,
+      minutes: endTime.minute,
+    );
+    final Duration result = endTimeDuration - startTimeDuration;
+    return result;
+  }
+
   bool get isValid {
     return images.isNotEmpty &&
         title.isNotEmpty &&
         description.isNotEmpty &&
-        horus > 0 &&
         fullName.isNotEmpty &&
         category.isNotEmpty;
   }

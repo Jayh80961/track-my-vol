@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // packages
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,40 +18,11 @@ import 'my_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+  // FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
   runApp(const App());
-  final GoogleSignInAccount? googleUser = await GoogleSignIn(
-    clientId: DefaultFirebaseOptions.currentPlatform.iosClientId,
-  ).signIn();
-  print(googleUser);
-  print(googleUser?.authentication);
-
-  // Obtain the auth details from the request
-  final GoogleSignInAuthentication? googleAuth =
-      await googleUser?.authentication;
-
-  print(googleAuth?.accessToken);
-  print(googleAuth?.idToken);
-
-  // Create a new credential
-  final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth?.accessToken,
-    idToken: googleAuth?.idToken,
-  );
-
-  final userCredential =
-      await FirebaseAuth.instance.signInWithCredential(credential);
-  print(credential);
-
-  CollectionReference users = FirebaseFirestore.instance.collection('users');
-
-  print(userCredential.user);
-  users.add({
-    'full_name': userCredential.user?.displayName,
-    'email': userCredential.user?.email
-  });
 }
 
 class App extends StatelessWidget {
@@ -58,22 +30,29 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Track My Vol',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: buildPageView(),
-    );
-  }
-
-  Widget buildPageView() {
-    return PageView(
-      children: [
-        HomePage(),
-        const LoginPage(),
-        const MyPage(),
-      ],
+      routerConfig: router,
     );
   }
 }
+
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: '/my',
+      builder: (context, state) => const MyPage(),
+    ),
+  ],
+);

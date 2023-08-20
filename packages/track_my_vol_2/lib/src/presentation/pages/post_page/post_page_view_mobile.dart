@@ -176,7 +176,7 @@ class PostPageViewMobile extends ConsumerWidget {
                         enabled: !postPageViewModel.isSubmitting,
                         decoration: InputDecoration(
                           labelText: 'Start of Time',
-                          suffixIcon: const Icon(Icons.date_range_outlined),
+                          suffixIcon: const Icon(Icons.access_time),
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                         ),
@@ -199,7 +199,7 @@ class PostPageViewMobile extends ConsumerWidget {
                         enabled: !postPageViewModel.isSubmitting,
                         decoration: InputDecoration(
                           labelText: 'End of Time',
-                          suffixIcon: const Icon(Icons.date_range_outlined),
+                          suffixIcon: const Icon(Icons.access_time),
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                         ),

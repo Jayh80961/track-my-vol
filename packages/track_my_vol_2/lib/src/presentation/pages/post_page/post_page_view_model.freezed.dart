@@ -19,6 +19,7 @@ mixin _$PostPageViewModel {
   List<XFile> get images => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  String get suggestion => throw _privateConstructorUsedError;
   String get fullName => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $PostPageViewModelCopyWith<$Res> {
       {List<XFile> images,
       String title,
       String description,
+      String suggestion,
       String fullName,
       String category,
       DateTime date,
@@ -65,6 +67,7 @@ class _$PostPageViewModelCopyWithImpl<$Res, $Val extends PostPageViewModel>
     Object? images = null,
     Object? title = null,
     Object? description = null,
+    Object? suggestion = null,
     Object? fullName = null,
     Object? category = null,
     Object? date = null,
@@ -84,6 +87,10 @@ class _$PostPageViewModelCopyWithImpl<$Res, $Val extends PostPageViewModel>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      suggestion: null == suggestion
+          ? _value.suggestion
+          : suggestion // ignore: cast_nullable_to_non_nullable
               as String,
       fullName: null == fullName
           ? _value.fullName
@@ -125,6 +132,7 @@ abstract class _$$_PostPageViewModelCopyWith<$Res>
       {List<XFile> images,
       String title,
       String description,
+      String suggestion,
       String fullName,
       String category,
       DateTime date,
@@ -147,6 +155,7 @@ class __$$_PostPageViewModelCopyWithImpl<$Res>
     Object? images = null,
     Object? title = null,
     Object? description = null,
+    Object? suggestion = null,
     Object? fullName = null,
     Object? category = null,
     Object? date = null,
@@ -166,6 +175,10 @@ class __$$_PostPageViewModelCopyWithImpl<$Res>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      suggestion: null == suggestion
+          ? _value.suggestion
+          : suggestion // ignore: cast_nullable_to_non_nullable
               as String,
       fullName: null == fullName
           ? _value.fullName
@@ -203,6 +216,7 @@ class _$_PostPageViewModel extends _PostPageViewModel
       {required final List<XFile> images,
       required this.title,
       required this.description,
+      required this.suggestion,
       required this.fullName,
       required this.category,
       required this.date,
@@ -225,6 +239,8 @@ class _$_PostPageViewModel extends _PostPageViewModel
   @override
   final String description;
   @override
+  final String suggestion;
+  @override
   final String fullName;
   @override
   final String category;
@@ -239,7 +255,7 @@ class _$_PostPageViewModel extends _PostPageViewModel
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PostPageViewModel(images: $images, title: $title, description: $description, fullName: $fullName, category: $category, date: $date, isSubmitting: $isSubmitting, startTime: $startTime, endTime: $endTime)';
+    return 'PostPageViewModel(images: $images, title: $title, description: $description, suggestion: $suggestion, fullName: $fullName, category: $category, date: $date, isSubmitting: $isSubmitting, startTime: $startTime, endTime: $endTime)';
   }
 
   @override
@@ -250,6 +266,7 @@ class _$_PostPageViewModel extends _PostPageViewModel
       ..add(DiagnosticsProperty('images', images))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('suggestion', suggestion))
       ..add(DiagnosticsProperty('fullName', fullName))
       ..add(DiagnosticsProperty('category', category))
       ..add(DiagnosticsProperty('date', date))
@@ -267,6 +284,8 @@ class _$_PostPageViewModel extends _PostPageViewModel
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.suggestion, suggestion) ||
+                other.suggestion == suggestion) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
             (identical(other.category, category) ||
@@ -285,6 +304,7 @@ class _$_PostPageViewModel extends _PostPageViewModel
       const DeepCollectionEquality().hash(_images),
       title,
       description,
+      suggestion,
       fullName,
       category,
       date,
@@ -305,6 +325,7 @@ abstract class _PostPageViewModel extends PostPageViewModel {
       {required final List<XFile> images,
       required final String title,
       required final String description,
+      required final String suggestion,
       required final String fullName,
       required final String category,
       required final DateTime date,
@@ -319,6 +340,8 @@ abstract class _PostPageViewModel extends PostPageViewModel {
   String get title;
   @override
   String get description;
+  @override
+  String get suggestion;
   @override
   String get fullName;
   @override

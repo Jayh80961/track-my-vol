@@ -9,20 +9,22 @@ part 'vol_model.g.dart';
 @freezed
 class VolModel with _$VolModel {
   const factory VolModel({
-    required String id,
-    required String userId,
-    required List<String> images,
-    required String title,
-    required String description,
-    required int minutes,
-    required int year,
-    required int month,
-    required int day,
-    required String fullName,
-    required String category,
+    @Default('') String id,
+    @Default('') String userId,
+    @Default(<String>[]) List<String> images,
+    @Default('') String title,
+    @Default('') String description,
+    @Default('') String suggestion,
+    @Default(0) int minutes,
+    @Default(0) int year,
+    @Default(0) int month,
+    @Default(0) int day,
+    @Default('') String fullName,
+    @Default('') String category,
     required DateTime createdAt,
     required DateTime updatedAt,
-    required bool isApproved,
+    @Default(false) bool isApproved,
+    @Default(false) bool isDeleted,
   }) = _VolModel;
 
   const VolModel._();

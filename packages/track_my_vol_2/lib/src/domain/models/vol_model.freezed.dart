@@ -25,6 +25,7 @@ mixin _$VolModel {
   List<String> get images => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  String get suggestion => throw _privateConstructorUsedError;
   int get minutes => throw _privateConstructorUsedError;
   int get year => throw _privateConstructorUsedError;
   int get month => throw _privateConstructorUsedError;
@@ -34,6 +35,7 @@ mixin _$VolModel {
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
   bool get isApproved => throw _privateConstructorUsedError;
+  bool get isDeleted => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,6 +54,7 @@ abstract class $VolModelCopyWith<$Res> {
       List<String> images,
       String title,
       String description,
+      String suggestion,
       int minutes,
       int year,
       int month,
@@ -60,7 +63,8 @@ abstract class $VolModelCopyWith<$Res> {
       String category,
       DateTime createdAt,
       DateTime updatedAt,
-      bool isApproved});
+      bool isApproved,
+      bool isDeleted});
 }
 
 /// @nodoc
@@ -81,6 +85,7 @@ class _$VolModelCopyWithImpl<$Res, $Val extends VolModel>
     Object? images = null,
     Object? title = null,
     Object? description = null,
+    Object? suggestion = null,
     Object? minutes = null,
     Object? year = null,
     Object? month = null,
@@ -90,6 +95,7 @@ class _$VolModelCopyWithImpl<$Res, $Val extends VolModel>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? isApproved = null,
+    Object? isDeleted = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -112,6 +118,10 @@ class _$VolModelCopyWithImpl<$Res, $Val extends VolModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      suggestion: null == suggestion
+          ? _value.suggestion
+          : suggestion // ignore: cast_nullable_to_non_nullable
+              as String,
       minutes: null == minutes
           ? _value.minutes
           : minutes // ignore: cast_nullable_to_non_nullable
@@ -148,6 +158,10 @@ class _$VolModelCopyWithImpl<$Res, $Val extends VolModel>
           ? _value.isApproved
           : isApproved // ignore: cast_nullable_to_non_nullable
               as bool,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -165,6 +179,7 @@ abstract class _$$_VolModelCopyWith<$Res> implements $VolModelCopyWith<$Res> {
       List<String> images,
       String title,
       String description,
+      String suggestion,
       int minutes,
       int year,
       int month,
@@ -173,7 +188,8 @@ abstract class _$$_VolModelCopyWith<$Res> implements $VolModelCopyWith<$Res> {
       String category,
       DateTime createdAt,
       DateTime updatedAt,
-      bool isApproved});
+      bool isApproved,
+      bool isDeleted});
 }
 
 /// @nodoc
@@ -192,6 +208,7 @@ class __$$_VolModelCopyWithImpl<$Res>
     Object? images = null,
     Object? title = null,
     Object? description = null,
+    Object? suggestion = null,
     Object? minutes = null,
     Object? year = null,
     Object? month = null,
@@ -201,6 +218,7 @@ class __$$_VolModelCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? isApproved = null,
+    Object? isDeleted = null,
   }) {
     return _then(_$_VolModel(
       id: null == id
@@ -223,6 +241,10 @@ class __$$_VolModelCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      suggestion: null == suggestion
+          ? _value.suggestion
+          : suggestion // ignore: cast_nullable_to_non_nullable
+              as String,
       minutes: null == minutes
           ? _value.minutes
           : minutes // ignore: cast_nullable_to_non_nullable
@@ -259,6 +281,10 @@ class __$$_VolModelCopyWithImpl<$Res>
           ? _value.isApproved
           : isApproved // ignore: cast_nullable_to_non_nullable
               as bool,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -267,20 +293,22 @@ class __$$_VolModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
   const _$_VolModel(
-      {required this.id,
-      required this.userId,
-      required final List<String> images,
-      required this.title,
-      required this.description,
-      required this.minutes,
-      required this.year,
-      required this.month,
-      required this.day,
-      required this.fullName,
-      required this.category,
+      {this.id = '',
+      this.userId = '',
+      final List<String> images = const <String>[],
+      this.title = '',
+      this.description = '',
+      this.suggestion = '',
+      this.minutes = 0,
+      this.year = 0,
+      this.month = 0,
+      this.day = 0,
+      this.fullName = '',
+      this.category = '',
       required this.createdAt,
       required this.updatedAt,
-      required this.isApproved})
+      this.isApproved = false,
+      this.isDeleted = false})
       : _images = images,
         super._();
 
@@ -288,11 +316,14 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       _$$_VolModelFromJson(json);
 
   @override
+  @JsonKey()
   final String id;
   @override
+  @JsonKey()
   final String userId;
   final List<String> _images;
   @override
+  @JsonKey()
   List<String> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
@@ -300,31 +331,46 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
   }
 
   @override
+  @JsonKey()
   final String title;
   @override
+  @JsonKey()
   final String description;
   @override
+  @JsonKey()
+  final String suggestion;
+  @override
+  @JsonKey()
   final int minutes;
   @override
+  @JsonKey()
   final int year;
   @override
+  @JsonKey()
   final int month;
   @override
+  @JsonKey()
   final int day;
   @override
+  @JsonKey()
   final String fullName;
   @override
+  @JsonKey()
   final String category;
   @override
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
   @override
+  @JsonKey()
   final bool isApproved;
+  @override
+  @JsonKey()
+  final bool isDeleted;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'VolModel(id: $id, userId: $userId, images: $images, title: $title, description: $description, minutes: $minutes, year: $year, month: $month, day: $day, fullName: $fullName, category: $category, createdAt: $createdAt, updatedAt: $updatedAt, isApproved: $isApproved)';
+    return 'VolModel(id: $id, userId: $userId, images: $images, title: $title, description: $description, suggestion: $suggestion, minutes: $minutes, year: $year, month: $month, day: $day, fullName: $fullName, category: $category, createdAt: $createdAt, updatedAt: $updatedAt, isApproved: $isApproved, isDeleted: $isDeleted)';
   }
 
   @override
@@ -337,6 +383,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('images', images))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('suggestion', suggestion))
       ..add(DiagnosticsProperty('minutes', minutes))
       ..add(DiagnosticsProperty('year', year))
       ..add(DiagnosticsProperty('month', month))
@@ -345,7 +392,8 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('category', category))
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('updatedAt', updatedAt))
-      ..add(DiagnosticsProperty('isApproved', isApproved));
+      ..add(DiagnosticsProperty('isApproved', isApproved))
+      ..add(DiagnosticsProperty('isDeleted', isDeleted));
   }
 
   @override
@@ -359,6 +407,8 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.suggestion, suggestion) ||
+                other.suggestion == suggestion) &&
             (identical(other.minutes, minutes) || other.minutes == minutes) &&
             (identical(other.year, year) || other.year == year) &&
             (identical(other.month, month) || other.month == month) &&
@@ -372,7 +422,9 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.isApproved, isApproved) ||
-                other.isApproved == isApproved));
+                other.isApproved == isApproved) &&
+            (identical(other.isDeleted, isDeleted) ||
+                other.isDeleted == isDeleted));
   }
 
   @JsonKey(ignore: true)
@@ -384,6 +436,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(_images),
       title,
       description,
+      suggestion,
       minutes,
       year,
       month,
@@ -392,7 +445,8 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       category,
       createdAt,
       updatedAt,
-      isApproved);
+      isApproved,
+      isDeleted);
 
   @JsonKey(ignore: true)
   @override
@@ -410,20 +464,22 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
 
 abstract class _VolModel extends VolModel {
   const factory _VolModel(
-      {required final String id,
-      required final String userId,
-      required final List<String> images,
-      required final String title,
-      required final String description,
-      required final int minutes,
-      required final int year,
-      required final int month,
-      required final int day,
-      required final String fullName,
-      required final String category,
+      {final String id,
+      final String userId,
+      final List<String> images,
+      final String title,
+      final String description,
+      final String suggestion,
+      final int minutes,
+      final int year,
+      final int month,
+      final int day,
+      final String fullName,
+      final String category,
       required final DateTime createdAt,
       required final DateTime updatedAt,
-      required final bool isApproved}) = _$_VolModel;
+      final bool isApproved,
+      final bool isDeleted}) = _$_VolModel;
   const _VolModel._() : super._();
 
   factory _VolModel.fromJson(Map<String, dynamic> json) = _$_VolModel.fromJson;
@@ -438,6 +494,8 @@ abstract class _VolModel extends VolModel {
   String get title;
   @override
   String get description;
+  @override
+  String get suggestion;
   @override
   int get minutes;
   @override
@@ -456,6 +514,8 @@ abstract class _VolModel extends VolModel {
   DateTime get updatedAt;
   @override
   bool get isApproved;
+  @override
+  bool get isDeleted;
   @override
   @JsonKey(ignore: true)
   _$$_VolModelCopyWith<_$_VolModel> get copyWith =>

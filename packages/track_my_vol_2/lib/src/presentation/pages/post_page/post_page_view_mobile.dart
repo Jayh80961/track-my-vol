@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
@@ -87,6 +86,206 @@ class PostPageViewMobile extends ConsumerWidget {
                     children: <Widget>[
                       buildPhotoContainer(),
                       const SizedBox(height: 24),
+                      const Text('Full-name'),
+                      DropdownButtonFormField<String>(
+                        value: postPageViewModel.fullName.isEmpty
+                            ? null
+                            : postPageViewModel.fullName,
+                        hint: const Text('Full-name'),
+                        items: const <DropdownMenuItem<String>>[
+                          DropdownMenuItem<String>(
+                            value: 'John Park',
+                            child: Text('12th John Park'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Hyunwoo (Alex) Tak',
+                            child: Text('12th Hyunwoo (Alex) Tak'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Seojun (Chris) Kim',
+                            child: Text('12th Seojun (Chris) Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Minseo (MK) Kwon',
+                            child: Text('12th Minseo (MK) Kwon'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Lorene Yubin Lee',
+                            child: Text('12th Lorene Yubin Lee'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Tomas Choi',
+                            child: Text('12th Tomas Choi'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Seyoon (Eric) Kim',
+                            child: Text('12th Seyoon (Eric) Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Sehyun (Aiden) Kim',
+                            child: Text('12th Sehyun (Aiden) Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Seungwoo (Alvin) Son',
+                            child: Text('12th Seungwoo (Alvin) Son'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Nayun Kim',
+                            child: Text('11th Nayun Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Sage Seohyun Park',
+                            child: Text('11th Sage Seohyun Park'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Esther Shin',
+                            child: Text('11th Esther Shin'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Brian Jooha Lee',
+                            child: Text('11th Brian Jooha Lee'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Clara Yoon Paick',
+                            child: Text('11th Clara Yoon Paick'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Joyce Kwack',
+                            child: Text('11th Joyce Kwack'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Kenneth Hyo-Sung Kim',
+                            child: Text('11th Kenneth Hyo-Sung Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Jiyu Kim',
+                            child: Text('11th Jiyu Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Yeongsu Kim',
+                            child: Text('10th Yeongsu Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Yenna Park',
+                            child: Text('10th Yenna Park'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Juliette Danbi Yoon',
+                            child: Text('10th Juliette Danbi Yoon'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'John Lee',
+                            child: Text('10th John Lee'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Ellie Yeon-woo Kim',
+                            child: Text('10th Ellie Yeon-woo Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Alexander Chu',
+                            child: Text('10th Alexander Chu'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Emily Haeun Cho',
+                            child: Text('10th Emily Haeun Cho'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Katie Kim',
+                            child: Text('10th Katie Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Yuri (Ticket) Lee',
+                            child: Text('10th Yuri (Ticket) Lee'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Seungah (Sun) Lee',
+                            child: Text('10th Seungah (Sun) Lee'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Jeonghoo Hyun',
+                            child: Text('10th Jeonghoo Hyun'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Jihoo (Stella)  Hyun',
+                            child: Text('9th Jihoo (Stella)  Hyun'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Jiwon (Angie)  Kim',
+                            child: Text('9th Jiwon (Angie)  Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Yaeji  Kim',
+                            child: Text('9th Yaeji  Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Nanu (Emily)  Kim',
+                            child: Text('9th Nanu (Emily)  Kim'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Hayden  Tong',
+                            child: Text('9th Hayden  Tong'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Ethan Shin',
+                            child: Text('9th Ethan Shin'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Gunwoo Jeng',
+                            child: Text('9th Gunwoo Jeng'),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(8),
+                        decoration: InputDecoration(
+                          border: outlinedBorder,
+                          enabledBorder: outlinedBorder,
+                          focusedBorder: outlinedBorder,
+                        ),
+                        onChanged: (String? value) {
+                          if (value != null) {
+                            print(value);
+                            postPagePresenter.fullNameOnChanged(value);
+                            print(postPageViewModel.fullName);
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 24),
+                      const Text('Category'),
+                      DropdownButtonFormField<String>(
+                        value: postPageViewModel.category.isEmpty
+                            ? null
+                            : postPageViewModel.category,
+                        hint: const Text('Category'),
+                        items: const <DropdownMenuItem<String>>[
+                          DropdownMenuItem<String>(
+                            value: 'Hosting',
+                            child: Text('Hosting'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Event',
+                            child: Text('Event'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Meeting',
+                            child: Text('Meeting'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Project',
+                            child: Text('Project'),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(8),
+                        decoration: InputDecoration(
+                          enabledBorder: outlinedBorder,
+                          focusedBorder: outlinedBorder,
+                          border: outlinedBorder,
+                        ),
+                        onChanged: (String? value) {
+                          if (value != null) {
+                            postPagePresenter.categoryOnChanged(value);
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 24),
                       const SizedBox(height: 8),
                       TextFormField(
                         decoration: InputDecoration(
@@ -112,24 +311,13 @@ class PostPageViewMobile extends ConsumerWidget {
                       const SizedBox(height: 24),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'full-name',
+                          labelText: 'suggestion',
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                         ),
                         readOnly: postPageViewModel.isSubmitting,
                         enabled: !postPageViewModel.isSubmitting,
-                        onChanged: postPagePresenter.fullNameOnChanged,
-                      ),
-                      const SizedBox(height: 24),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: 'category',
-                          enabledBorder: outlinedBorder,
-                          focusedBorder: outlinedBorder,
-                        ),
-                        readOnly: postPageViewModel.isSubmitting,
-                        enabled: !postPageViewModel.isSubmitting,
-                        onChanged: postPagePresenter.categoryOnChanged,
+                        onChanged: postPagePresenter.suggestionOnChanged,
                       ),
                       const SizedBox(height: 24),
                       TextFormField(
@@ -161,7 +349,7 @@ class PostPageViewMobile extends ConsumerWidget {
                       const SizedBox(height: 24),
                       TextFormField(
                         controller: TextEditingController(
-                          text: postPageViewModel.startTime.toString(),
+                          text: postPageViewModel.startTime.format(context),
                         ),
                         onTap: () async {
                           final TimeOfDay? value = await showTimePicker(
@@ -184,7 +372,7 @@ class PostPageViewMobile extends ConsumerWidget {
                       const SizedBox(height: 24),
                       TextFormField(
                         controller: TextEditingController(
-                          text: postPageViewModel.endTime.toString(),
+                          text: postPageViewModel.endTime.format(context),
                         ),
                         onTap: () async {
                           final TimeOfDay? value = await showTimePicker(
@@ -207,10 +395,10 @@ class PostPageViewMobile extends ConsumerWidget {
                       const SizedBox(height: 24),
                       TextFormField(
                         controller: TextEditingController(
-                          text: postPageViewModel.duration.toString(),
+                          text: '${postPageViewModel.duration.inMinutes}',
                         ),
                         decoration: InputDecoration(
-                          labelText: 'hours',
+                          labelText: 'minutes',
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                           disabledBorder: outlinedBorder,
@@ -241,7 +429,7 @@ class PostPageViewMobile extends ConsumerWidget {
           postPagePresenterProvider.notifier,
         );
         final ScrollController scrollController = ScrollController();
-        final List<Widget> imageWidgets = [];
+        final List<Widget> imageWidgets = <Widget>[];
         for (final XFile image in postPageViewModel.images) {
           if (kIsWeb) {
             imageWidgets.add(

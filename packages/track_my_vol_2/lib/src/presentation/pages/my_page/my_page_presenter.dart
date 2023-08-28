@@ -37,8 +37,14 @@ class MyPagePresenter extends _$MyPagePresenter {
         .map((QueryDocumentSnapshot<VolModel> document) => document.data())
         .toList();
     int totalMinutes = 0;
+    int approvedMinutes = 0;
+    int approvedVols = 0;
     for (int index = 0; index < vols.length; index++) {
       totalMinutes += vols[index].minutes;
+      if (vols[index].isApproved) {
+        approvedVols++;
+        approvedMinutes += vols[index].minutes;
+      }
     }
     return MyPageViewModel(
       isLoading: false,
@@ -46,6 +52,8 @@ class MyPagePresenter extends _$MyPagePresenter {
       name: FirebaseAuth.instance.currentUser?.displayName ?? '',
       totalVols: vols.length,
       totalMinutes: totalMinutes,
+      approvedVols: approvedVols,
+      approvedMinutes: approvedMinutes,
     );
   }
 
@@ -53,5 +61,13 @@ class MyPagePresenter extends _$MyPagePresenter {
     final MyPageViewModel value = await fetch();
     state = AsyncValue<MyPageViewModel>.data(value);
     return;
+  }
+
+  Future<void> deleteVol(String id) async {
+    state = const AsyncValue<MyPageViewModel>.loading();
+    state = await AsyncValue.guard(() async {
+      await FirebaseFirestore.instance.collection('vols').doc(id).delete();
+      return fetch();
+    });
   }
 }

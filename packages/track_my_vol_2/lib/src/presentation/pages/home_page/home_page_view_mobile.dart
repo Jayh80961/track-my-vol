@@ -83,6 +83,8 @@ class HomePageViewMobile extends StatelessWidget {
                           ),
                           child: VolListTile(
                             title: homePageViewModel.vols[index].title,
+                            category: homePageViewModel.vols[index].category,
+                            fullName: homePageViewModel.vols[index].fullName,
                             description:
                                 homePageViewModel.vols[index].description,
                             image: CachedNetworkImageProvider(
@@ -102,6 +104,9 @@ class HomePageViewMobile extends StatelessWidget {
             );
           },
           error: (Object error, StackTrace stackTrace) {
+            print(error);
+            print(stackTrace);
+
             return Column(
               children: <Widget>[
                 // Text('Error: $error'),

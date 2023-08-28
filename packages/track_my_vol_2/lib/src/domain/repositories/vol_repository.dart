@@ -48,6 +48,7 @@ class Repository {
       createdAt: DateTime.now(),
       updatedAt: DateTime.now(),
       isApproved: false,
+      isDeleted: false,
     );
   }
 }

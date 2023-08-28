@@ -19,8 +19,10 @@ mixin _$MyPageViewModel {
   List<VolModel> get vols => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  int get approvedMinutes => throw _privateConstructorUsedError;
   int get totalMinutes => throw _privateConstructorUsedError;
   int get totalVols => throw _privateConstructorUsedError;
+  int get approvedVols => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MyPageViewModelCopyWith<MyPageViewModel> get copyWith =>
@@ -37,8 +39,10 @@ abstract class $MyPageViewModelCopyWith<$Res> {
       {List<VolModel> vols,
       bool isLoading,
       String name,
+      int approvedMinutes,
       int totalMinutes,
-      int totalVols});
+      int totalVols,
+      int approvedVols});
 }
 
 /// @nodoc
@@ -57,8 +61,10 @@ class _$MyPageViewModelCopyWithImpl<$Res, $Val extends MyPageViewModel>
     Object? vols = null,
     Object? isLoading = null,
     Object? name = null,
+    Object? approvedMinutes = null,
     Object? totalMinutes = null,
     Object? totalVols = null,
+    Object? approvedVols = null,
   }) {
     return _then(_value.copyWith(
       vols: null == vols
@@ -73,6 +79,10 @@ class _$MyPageViewModelCopyWithImpl<$Res, $Val extends MyPageViewModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      approvedMinutes: null == approvedMinutes
+          ? _value.approvedMinutes
+          : approvedMinutes // ignore: cast_nullable_to_non_nullable
+              as int,
       totalMinutes: null == totalMinutes
           ? _value.totalMinutes
           : totalMinutes // ignore: cast_nullable_to_non_nullable
@@ -80,6 +90,10 @@ class _$MyPageViewModelCopyWithImpl<$Res, $Val extends MyPageViewModel>
       totalVols: null == totalVols
           ? _value.totalVols
           : totalVols // ignore: cast_nullable_to_non_nullable
+              as int,
+      approvedVols: null == approvedVols
+          ? _value.approvedVols
+          : approvedVols // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -97,8 +111,10 @@ abstract class _$$_MyPageViewModelCopyWith<$Res>
       {List<VolModel> vols,
       bool isLoading,
       String name,
+      int approvedMinutes,
       int totalMinutes,
-      int totalVols});
+      int totalVols,
+      int approvedVols});
 }
 
 /// @nodoc
@@ -115,8 +131,10 @@ class __$$_MyPageViewModelCopyWithImpl<$Res>
     Object? vols = null,
     Object? isLoading = null,
     Object? name = null,
+    Object? approvedMinutes = null,
     Object? totalMinutes = null,
     Object? totalVols = null,
+    Object? approvedVols = null,
   }) {
     return _then(_$_MyPageViewModel(
       vols: null == vols
@@ -131,6 +149,10 @@ class __$$_MyPageViewModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      approvedMinutes: null == approvedMinutes
+          ? _value.approvedMinutes
+          : approvedMinutes // ignore: cast_nullable_to_non_nullable
+              as int,
       totalMinutes: null == totalMinutes
           ? _value.totalMinutes
           : totalMinutes // ignore: cast_nullable_to_non_nullable
@@ -138,6 +160,10 @@ class __$$_MyPageViewModelCopyWithImpl<$Res>
       totalVols: null == totalVols
           ? _value.totalVols
           : totalVols // ignore: cast_nullable_to_non_nullable
+              as int,
+      approvedVols: null == approvedVols
+          ? _value.approvedVols
+          : approvedVols // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -150,8 +176,10 @@ class _$_MyPageViewModel extends _MyPageViewModel with DiagnosticableTreeMixin {
       {required final List<VolModel> vols,
       required this.isLoading,
       required this.name,
+      required this.approvedMinutes,
       required this.totalMinutes,
-      required this.totalVols})
+      required this.totalVols,
+      required this.approvedVols})
       : _vols = vols,
         super._();
 
@@ -168,13 +196,17 @@ class _$_MyPageViewModel extends _MyPageViewModel with DiagnosticableTreeMixin {
   @override
   final String name;
   @override
+  final int approvedMinutes;
+  @override
   final int totalMinutes;
   @override
   final int totalVols;
+  @override
+  final int approvedVols;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MyPageViewModel(vols: $vols, isLoading: $isLoading, name: $name, totalMinutes: $totalMinutes, totalVols: $totalVols)';
+    return 'MyPageViewModel(vols: $vols, isLoading: $isLoading, name: $name, approvedMinutes: $approvedMinutes, totalMinutes: $totalMinutes, totalVols: $totalVols, approvedVols: $approvedVols)';
   }
 
   @override
@@ -185,8 +217,10 @@ class _$_MyPageViewModel extends _MyPageViewModel with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('vols', vols))
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('approvedMinutes', approvedMinutes))
       ..add(DiagnosticsProperty('totalMinutes', totalMinutes))
-      ..add(DiagnosticsProperty('totalVols', totalVols));
+      ..add(DiagnosticsProperty('totalVols', totalVols))
+      ..add(DiagnosticsProperty('approvedVols', approvedVols));
   }
 
   @override
@@ -198,10 +232,14 @@ class _$_MyPageViewModel extends _MyPageViewModel with DiagnosticableTreeMixin {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.approvedMinutes, approvedMinutes) ||
+                other.approvedMinutes == approvedMinutes) &&
             (identical(other.totalMinutes, totalMinutes) ||
                 other.totalMinutes == totalMinutes) &&
             (identical(other.totalVols, totalVols) ||
-                other.totalVols == totalVols));
+                other.totalVols == totalVols) &&
+            (identical(other.approvedVols, approvedVols) ||
+                other.approvedVols == approvedVols));
   }
 
   @override
@@ -210,8 +248,10 @@ class _$_MyPageViewModel extends _MyPageViewModel with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(_vols),
       isLoading,
       name,
+      approvedMinutes,
       totalMinutes,
-      totalVols);
+      totalVols,
+      approvedVols);
 
   @JsonKey(ignore: true)
   @override
@@ -225,8 +265,10 @@ abstract class _MyPageViewModel extends MyPageViewModel {
       {required final List<VolModel> vols,
       required final bool isLoading,
       required final String name,
+      required final int approvedMinutes,
       required final int totalMinutes,
-      required final int totalVols}) = _$_MyPageViewModel;
+      required final int totalVols,
+      required final int approvedVols}) = _$_MyPageViewModel;
   const _MyPageViewModel._() : super._();
 
   @override
@@ -236,9 +278,13 @@ abstract class _MyPageViewModel extends MyPageViewModel {
   @override
   String get name;
   @override
+  int get approvedMinutes;
+  @override
   int get totalMinutes;
   @override
   int get totalVols;
+  @override
+  int get approvedVols;
   @override
   @JsonKey(ignore: true)
   _$$_MyPageViewModelCopyWith<_$_MyPageViewModel> get copyWith =>

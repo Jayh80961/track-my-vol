@@ -20,6 +20,7 @@ class PostPagePresenter extends _$PostPagePresenter {
       images: <XFile>[],
       title: '',
       description: '',
+      suggestion: '',
       category: '',
       date: DateTime.now(),
       fullName: '',
@@ -35,6 +36,10 @@ class PostPagePresenter extends _$PostPagePresenter {
 
   void descriptionOnChanged(String value) {
     state = state.copyWith(description: value);
+  }
+
+  void suggestionOnChanged(String value) {
+    state = state.copyWith(suggestion: value);
   }
 
   void categoryOnChanged(String value) {
@@ -99,10 +104,16 @@ class PostPagePresenter extends _$PostPagePresenter {
       final String imageUrl = await imageRef.getDownloadURL();
       imageUrls.add(imageUrl);
     }
+    if (imageUrls.isEmpty) {
+      const String defaultImageUrl =
+          'https://drive.google.com/uc?export=view&id=1kZCTKcJeeGU5UNqAvffOWfLVDieJGUqD';
+      imageUrls.add(defaultImageUrl);
+    }
     final VolModel volModel = VolModel(
       images: imageUrls,
       title: state.title,
       description: state.description,
+      suggestion: state.suggestion,
       minutes: state.duration.inMinutes,
       year: state.date.year,
       month: state.date.month,
@@ -114,6 +125,7 @@ class PostPagePresenter extends _$PostPagePresenter {
       isApproved: false,
       id: '',
       userId: FirebaseAuth.instance.currentUser?.uid ?? '',
+      isDeleted: false,
     );
     await FirebaseFirestore.instance.collection('vols').add(
           volModel.toFirestore(),

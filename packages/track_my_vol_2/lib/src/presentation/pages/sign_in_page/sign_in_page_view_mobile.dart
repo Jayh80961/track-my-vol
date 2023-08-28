@@ -23,6 +23,42 @@ class SignInPageViewMobile extends StatelessWidget {
               Buttons.google,
               onPressed: () async {
                 try {
+                  final TextEditingController inviteCodeTextController =
+                      TextEditingController();
+                  final bool? isCorrectCode = await showDialog<bool>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Invite Code'),
+                        content: TextField(
+                          controller: inviteCodeTextController,
+                          decoration: const InputDecoration(hintText: 'code'),
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const Text('Submit'),
+                            onPressed: () {
+                              Navigator.pop(
+                                context,
+                                inviteCodeTextController.text.trim() ==
+                                    '23HOK24',
+                              );
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                  if (isCorrectCode != true) {
+                    if (context.mounted) {
+                      const SnackBar snackBar = SnackBar(
+                        content: Text('Please Check Invite Code'),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                    return;
+                  }
+
                   final GoogleSignInAccount? googleUser =
                       await GoogleSignIn().signIn();
                   final GoogleSignInAuthentication? googleAuth =

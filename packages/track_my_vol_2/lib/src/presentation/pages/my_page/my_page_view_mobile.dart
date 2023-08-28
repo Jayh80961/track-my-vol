@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +29,7 @@ class MyPageViewMobile extends StatelessWidget {
 
   Widget buildBody() {
     return Consumer(
-      builder: (context, ref, child) {
+      builder: (BuildContext context, WidgetRef ref, Widget? child) {
         final MyPagePresenter myPagePresenter = ref.read(
           myPagePresenterProvider.notifier,
         );
@@ -42,17 +44,19 @@ class MyPageViewMobile extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       const SizedBox(width: 8),
-                      Icon(size: 80, Icons.account_circle_outlined),
+                      const Icon(size: 80, Icons.account_circle_outlined),
                       const SizedBox(width: 16),
                       Text(myPageViewModel.name),
                       const Spacer(),
                       TextButton.icon(
-                        onPressed: () {
-                          FirebaseAuth.instance.signOut();
-                          context.go('/login');
+                        onPressed: () async {
+                          await FirebaseAuth.instance.signOut();
+                          if (context.mounted) {
+                            context.go('/login');
+                          }
                         },
-                        icon: Icon(Icons.logout),
-                        label: Text('Sign Out'),
+                        icon: const Icon(Icons.logout),
+                        label: const Text('Sign Out'),
                       ),
                     ],
                   ),
@@ -66,7 +70,7 @@ class MyPageViewMobile extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: ListTile(
                     title: Text(
-                      'Total Minutes : ${myPageViewModel.totalMinutes}',
+                      'Approved Minutes : ${myPageViewModel.approvedMinutes}',
                     ),
                   ),
                 ),
@@ -78,7 +82,16 @@ class MyPageViewMobile extends StatelessWidget {
                 ),
                 SliverToBoxAdapter(
                   child: ListTile(
-                    title: Text('My Vols : ${myPageViewModel.totalVols}'),
+                    title: Text(
+                      'My Approved Vols : ${myPageViewModel.approvedVols}',
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: ListTile(
+                    title: Text(
+                      'My In Review Vols : ${myPageViewModel.totalVols - myPageViewModel.approvedVols}',
+                    ),
                   ),
                 ),
                 SliverToBoxAdapter(
@@ -106,7 +119,38 @@ class MyPageViewMobile extends StatelessWidget {
                           ),
                         ),
                         child: VolListTile(
+                          onLongPress: () {
+                            unawaited(
+                              showDialog<void>(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text('Delete'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () => context.pop(),
+                                        child: const Text('Cancel'),
+                                      ),
+                                      TextButton(
+                                        onPressed: () async {
+                                          await myPagePresenter.deleteVol(
+                                            myPageViewModel.vols[index].id,
+                                          );
+                                          if (context.mounted) {
+                                            context.pop();
+                                          }
+                                        },
+                                        child: const Text('Delete'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
+                            );
+                          },
                           title: myPageViewModel.vols[index].title,
+                          category: myPageViewModel.vols[index].category,
+                          fullName: myPageViewModel.vols[index].fullName,
                           description: myPageViewModel.vols[index].description,
                           image: CachedNetworkImageProvider(
                             myPageViewModel.vols[index].images[0],

@@ -11,8 +11,10 @@ class MyPageViewModel with _$MyPageViewModel {
     required List<VolModel> vols,
     required bool isLoading,
     required String name,
+    required int approvedMinutes,
     required int totalMinutes,
     required int totalVols,
+    required int approvedVols,
   }) = _MyPageViewModel;
 
   const MyPageViewModel._();

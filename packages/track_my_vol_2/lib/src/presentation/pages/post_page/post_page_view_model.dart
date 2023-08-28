@@ -12,6 +12,7 @@ class PostPageViewModel with _$PostPageViewModel {
     required List<XFile> images,
     required String title,
     required String description,
+    required String suggestion,
     required String fullName,
     required String category,
     required DateTime date,
@@ -42,11 +43,7 @@ class PostPageViewModel with _$PostPageViewModel {
   }
 
   bool get isValid {
-    return images.isNotEmpty &&
-        title.isNotEmpty &&
-        description.isNotEmpty &&
-        fullName.isNotEmpty &&
-        category.isNotEmpty;
+    return fullName.isNotEmpty && category.isNotEmpty;
   }
 
   bool get isNotValid {

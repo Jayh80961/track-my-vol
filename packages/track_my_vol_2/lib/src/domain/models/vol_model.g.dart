@@ -9,6 +9,7 @@ part of 'vol_model.dart';
 _$_VolModel _$$_VolModelFromJson(Map<String, dynamic> json) => _$_VolModel(
       id: json['id'] as String? ?? '',
       userId: json['userId'] as String? ?? '',
+      userEmail: json['userEmail'] as String? ?? '',
       images: (json['images'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -32,6 +33,7 @@ Map<String, dynamic> _$$_VolModelToJson(_$_VolModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'userId': instance.userId,
+      'userEmail': instance.userEmail,
       'images': instance.images,
       'title': instance.title,
       'description': instance.description,

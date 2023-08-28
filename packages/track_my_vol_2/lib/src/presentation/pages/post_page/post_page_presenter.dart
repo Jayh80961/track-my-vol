@@ -125,6 +125,7 @@ class PostPagePresenter extends _$PostPagePresenter {
       isApproved: false,
       id: '',
       userId: FirebaseAuth.instance.currentUser?.uid ?? '',
+      userEmail: FirebaseAuth.instance.currentUser?.email ?? '',
       isDeleted: false,
     );
     await FirebaseFirestore.instance.collection('vols').add(

@@ -11,6 +11,7 @@ class VolModel with _$VolModel {
   const factory VolModel({
     @Default('') String id,
     @Default('') String userId,
+    @Default('') String userEmail,
     @Default(<String>[]) List<String> images,
     @Default('') String title,
     @Default('') String description,

@@ -22,6 +22,7 @@ VolModel _$VolModelFromJson(Map<String, dynamic> json) {
 mixin _$VolModel {
   String get id => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  String get userEmail => throw _privateConstructorUsedError;
   List<String> get images => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $VolModelCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
+      String userEmail,
       List<String> images,
       String title,
       String description,
@@ -82,6 +84,7 @@ class _$VolModelCopyWithImpl<$Res, $Val extends VolModel>
   $Res call({
     Object? id = null,
     Object? userId = null,
+    Object? userEmail = null,
     Object? images = null,
     Object? title = null,
     Object? description = null,
@@ -105,6 +108,10 @@ class _$VolModelCopyWithImpl<$Res, $Val extends VolModel>
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userEmail: null == userEmail
+          ? _value.userEmail
+          : userEmail // ignore: cast_nullable_to_non_nullable
               as String,
       images: null == images
           ? _value.images
@@ -176,6 +183,7 @@ abstract class _$$_VolModelCopyWith<$Res> implements $VolModelCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
+      String userEmail,
       List<String> images,
       String title,
       String description,
@@ -205,6 +213,7 @@ class __$$_VolModelCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? userId = null,
+    Object? userEmail = null,
     Object? images = null,
     Object? title = null,
     Object? description = null,
@@ -228,6 +237,10 @@ class __$$_VolModelCopyWithImpl<$Res>
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userEmail: null == userEmail
+          ? _value.userEmail
+          : userEmail // ignore: cast_nullable_to_non_nullable
               as String,
       images: null == images
           ? _value._images
@@ -295,6 +308,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
   const _$_VolModel(
       {this.id = '',
       this.userId = '',
+      this.userEmail = '',
       final List<String> images = const <String>[],
       this.title = '',
       this.description = '',
@@ -321,6 +335,9 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
   @override
   @JsonKey()
   final String userId;
+  @override
+  @JsonKey()
+  final String userEmail;
   final List<String> _images;
   @override
   @JsonKey()
@@ -370,7 +387,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'VolModel(id: $id, userId: $userId, images: $images, title: $title, description: $description, suggestion: $suggestion, minutes: $minutes, year: $year, month: $month, day: $day, fullName: $fullName, category: $category, createdAt: $createdAt, updatedAt: $updatedAt, isApproved: $isApproved, isDeleted: $isDeleted)';
+    return 'VolModel(id: $id, userId: $userId, userEmail: $userEmail, images: $images, title: $title, description: $description, suggestion: $suggestion, minutes: $minutes, year: $year, month: $month, day: $day, fullName: $fullName, category: $category, createdAt: $createdAt, updatedAt: $updatedAt, isApproved: $isApproved, isDeleted: $isDeleted)';
   }
 
   @override
@@ -380,6 +397,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'VolModel'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('userId', userId))
+      ..add(DiagnosticsProperty('userEmail', userEmail))
       ..add(DiagnosticsProperty('images', images))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('description', description))
@@ -403,6 +421,8 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
             other is _$_VolModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.userEmail, userEmail) ||
+                other.userEmail == userEmail) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -433,6 +453,7 @@ class _$_VolModel extends _VolModel with DiagnosticableTreeMixin {
       runtimeType,
       id,
       userId,
+      userEmail,
       const DeepCollectionEquality().hash(_images),
       title,
       description,
@@ -466,6 +487,7 @@ abstract class _VolModel extends VolModel {
   const factory _VolModel(
       {final String id,
       final String userId,
+      final String userEmail,
       final List<String> images,
       final String title,
       final String description,
@@ -488,6 +510,8 @@ abstract class _VolModel extends VolModel {
   String get id;
   @override
   String get userId;
+  @override
+  String get userEmail;
   @override
   List<String> get images;
   @override

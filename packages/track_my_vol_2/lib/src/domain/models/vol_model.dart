@@ -63,6 +63,6 @@ class VolModel with _$VolModel {
 
   String get dateString {
     final DateTime date = DateTime(year, month, day);
-    return DateFormat('yyyy / MMMM / dd / EE').format(date);
+    return DateFormat('EE dd MMM yyyy').format(date);
   }
 }

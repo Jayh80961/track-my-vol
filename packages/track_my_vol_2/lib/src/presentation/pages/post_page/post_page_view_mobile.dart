@@ -86,12 +86,12 @@ class PostPageViewMobile extends ConsumerWidget {
                     children: <Widget>[
                       buildPhotoContainer(),
                       const SizedBox(height: 24),
-                      const Text('Full-name'),
+                      const Text('Full-name *'),
                       DropdownButtonFormField<String>(
                         value: postPageViewModel.fullName.isEmpty
                             ? null
                             : postPageViewModel.fullName,
-                        hint: const Text('Full-name'),
+                        hint: const Text('Full-name *'),
                         items: const <DropdownMenuItem<String>>[
                           DropdownMenuItem<String>(
                             value: 'John Park',
@@ -242,19 +242,17 @@ class PostPageViewMobile extends ConsumerWidget {
                         ),
                         onChanged: (String? value) {
                           if (value != null) {
-                            print(value);
                             postPagePresenter.fullNameOnChanged(value);
-                            print(postPageViewModel.fullName);
                           }
                         },
                       ),
                       const SizedBox(height: 24),
-                      const Text('Category'),
+                      const Text('Category *'),
                       DropdownButtonFormField<String>(
                         value: postPageViewModel.category.isEmpty
                             ? null
                             : postPageViewModel.category,
-                        hint: const Text('Category'),
+                        hint: const Text('Category *'),
                         items: const <DropdownMenuItem<String>>[
                           DropdownMenuItem<String>(
                             value: 'Hosting',
@@ -289,7 +287,7 @@ class PostPageViewMobile extends ConsumerWidget {
                       const SizedBox(height: 8),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'title',
+                          labelText: 'Title - optional',
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                         ),
@@ -300,7 +298,7 @@ class PostPageViewMobile extends ConsumerWidget {
                       const SizedBox(height: 24),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'description',
+                          labelText: 'Description - optional',
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                         ),
@@ -311,7 +309,7 @@ class PostPageViewMobile extends ConsumerWidget {
                       const SizedBox(height: 24),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'suggestion',
+                          labelText: 'Suggestion - optional',
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                         ),
@@ -340,7 +338,7 @@ class PostPageViewMobile extends ConsumerWidget {
                         readOnly: true,
                         enabled: !postPageViewModel.isSubmitting,
                         decoration: InputDecoration(
-                          labelText: 'date',
+                          labelText: 'Date *',
                           suffixIcon: const Icon(Icons.date_range_outlined),
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
@@ -363,7 +361,7 @@ class PostPageViewMobile extends ConsumerWidget {
                         readOnly: true,
                         enabled: !postPageViewModel.isSubmitting,
                         decoration: InputDecoration(
-                          labelText: 'Start of Time',
+                          labelText: 'Start of Time *',
                           suffixIcon: const Icon(Icons.access_time),
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
@@ -386,7 +384,7 @@ class PostPageViewMobile extends ConsumerWidget {
                         readOnly: true,
                         enabled: !postPageViewModel.isSubmitting,
                         decoration: InputDecoration(
-                          labelText: 'End of Time',
+                          labelText: 'End of Time *',
                           suffixIcon: const Icon(Icons.access_time),
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
@@ -398,7 +396,7 @@ class PostPageViewMobile extends ConsumerWidget {
                           text: '${postPageViewModel.duration.inMinutes}',
                         ),
                         decoration: InputDecoration(
-                          labelText: 'minutes',
+                          labelText: 'Minutes - auto',
                           enabledBorder: outlinedBorder,
                           focusedBorder: outlinedBorder,
                           disabledBorder: outlinedBorder,

@@ -24,7 +24,7 @@ class PostPageViewModel with _$PostPageViewModel {
   const PostPageViewModel._();
 
   String get dateString {
-    return DateFormat('yyyy / MMMM / dd / EE').format(date);
+    return DateFormat('EE dd MMM yyyy').format(date);
   }
 
   int get minutes => duration.inMinutes;

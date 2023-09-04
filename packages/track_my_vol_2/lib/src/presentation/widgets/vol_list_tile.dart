@@ -32,23 +32,59 @@ class VolListTile extends StatelessWidget {
       },
       onLongPress: onLongPress,
       child: SizedBox(
-        height: 140,
+        height: 152,
         child: Row(
           children: <Widget>[
             const SizedBox(width: 16),
-            Image(width: 96, height: 96, image: image),
+            Image(width: 120, height: 120, image: image),
             const SizedBox(width: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const SizedBox(height: 16),
-                Text('$fullName | $date'),
-                Text('Minutes : $minutes'),
-                Text('Category : $category'),
-                Text(title),
-                Text(description),
-              ],
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const SizedBox(height: 16),
+                  Text(
+                    fullName,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    date,
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: Colors.grey,
+                        ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    '$minutes min',
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: Colors.grey,
+                        ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    '$category - Category',
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: Colors.grey,
+                        ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  Text(
+                    description,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Colors.grey,
+                        ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
             ),
+            const SizedBox(width: 16),
           ],
         ),
       ),

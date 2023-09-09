@@ -12,6 +12,7 @@ class VolListTile extends StatelessWidget {
     required this.image,
     required this.date,
     required this.minutes,
+    this.isApproved = false,
     this.onLongPress,
   });
 
@@ -23,6 +24,7 @@ class VolListTile extends StatelessWidget {
   final int minutes;
   final ImageProvider image;
   final void Function()? onLongPress;
+  final bool isApproved;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class VolListTile extends StatelessWidget {
       child: SizedBox(
         height: 152,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const SizedBox(width: 16),
             Image(width: 120, height: 120, image: image),
@@ -85,6 +88,16 @@ class VolListTile extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
+            if (isApproved)
+              Container(
+                margin: const EdgeInsets.only(top: 16),
+                child: const Icon(
+                  Icons.verified,
+                  size: 16,
+                  color: Colors.blue,
+                ),
+              ),
+            const SizedBox(width: 16),
           ],
         ),
       ),
@@ -103,5 +116,6 @@ class VolListTile extends StatelessWidget {
     properties.add(StringProperty('fullName', fullName));
     properties.add(
         ObjectFlagProperty<void Function()?>.has('onLongPress', onLongPress));
+    properties.add(DiagnosticsProperty<bool>('isApproved', isApproved));
   }
 }

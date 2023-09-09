@@ -92,6 +92,8 @@ class HomePageViewMobile extends StatelessWidget {
                             ),
                             date: homePageViewModel.vols[index].dateString,
                             minutes: homePageViewModel.vols[index].minutes,
+                            isApproved:
+                                homePageViewModel.vols[index].isApproved,
                           ),
                         );
                       },

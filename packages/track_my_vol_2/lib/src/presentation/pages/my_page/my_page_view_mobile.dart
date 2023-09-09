@@ -157,6 +157,7 @@ class MyPageViewMobile extends StatelessWidget {
                           ),
                           date: myPageViewModel.vols[index].dateString,
                           minutes: myPageViewModel.vols[index].minutes,
+                          isApproved: myPageViewModel.vols[index].isApproved,
                         ),
                       );
                     },
